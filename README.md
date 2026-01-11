@@ -30,4 +30,4 @@ bibtex
 ## Notebook
 
 - Overall Pipeline notebook: notebooks/basic_pipeline.ipynb
-- Open in Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/KU-GEOI-525-2023/fallow-land-detection-khajura-bilstm/blob/main/notebooks/basic_pipeline.ipynb)
+- Open in Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/KU-GEOI-525-2023/fallow-land-detection-khajura-bilstm/blob/master/notebooks/basic_pipeline.ipynb)
