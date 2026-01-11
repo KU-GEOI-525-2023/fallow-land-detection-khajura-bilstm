@@ -25,7 +25,7 @@ bibtex
 ## TODO
 
 - [x] Jan 11, 2025 - open-sourced the full codebase and configuration files
-- [ ] draft and publish the technical paper describing methodology and results
+- [ ] Draft and publish the technical paper describing methodology and results
 
 ## Notebook
 
