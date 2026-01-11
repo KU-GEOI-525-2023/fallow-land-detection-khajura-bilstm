@@ -1,12 +1,33 @@
-# Land Classifier
+# Deep Learning-Based Detection of Active, Fallow and Abandoned Land
+# Khajura Rural Municipality, Nepal
 
 End-to-end pipeline for mapping active, fallow, abandoned, and other land cover
 classes using Sentinel-2 imagery and Google Earth Engine. It includes data
 extraction, EDA, rule-based baselines, deep learning training/inference,
 evaluation, and visualization
 
+
+
+## Citation
+
+If you use this work, please cite:
+```
+bibtex
+@misc{khajura_land_detection_2025,
+  title   = {Deep Learning-Based Detection of Active, Fallow and Abandoned Land: Khajura Municipality, Nepal},
+  author  = {Tandukar, Nishon and Acharya, Bishnu and Rawat, Bikram and Acharya, Rishi and Sharma, Sandesh and Thapa, Saruna and Basi, Nishim},
+  year    = {2025},
+  url     = {https://github.com/KU-GEOI-525-2023/fallow-land-detection-khajura-bilstm},
+  note    = {GitHub repository, accessed 2026-01-11}
+}
+```
+
+## TODO
+
+- [x] Jan 11, 2025 - open-sourced the full codebase and configuration files
+- [ ] Draft and publish the technical paper describing methodology and results
+
 ## Notebook
 
-- Overall Pipeline notebook: `notebooks/basic_pipeline.ipynb`
-- Open in Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/KU-GEOI-525-2023/fallow-land-detection-khajura-bilstm/blob/master/notebooks/basic_pipeline.ipynb)
-
+- Overall Pipeline notebook: notebooks/basic_pipeline.ipynb
+- Open in Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/KU-GEOI-525-2023/fallow-land-detection-khajura-bilstm/blob/master/notebooks/basic_pipeline.ipynb)
