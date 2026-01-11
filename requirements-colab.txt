@@ -9,6 +9,7 @@ numpy
 pandas
 scipy
 matplotlib
+ipywidgets
 git+https://github.com/konishon/nepal-palika-finder.git
 bottleneck
 tqdm
