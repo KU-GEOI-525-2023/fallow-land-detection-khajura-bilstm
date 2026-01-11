@@ -1,5 +1,4 @@
-# Deep Learning-Based Detection of Active, Fallow and Abandoned Land
-# Khajura Rural Municipality, Nepal
+# Deep Learning-Based Detection of Active, Fallow and Abandoned Land in Khajura Rural Municipality, Nepal
 
 End-to-end pipeline for mapping active, fallow, abandoned, and other land cover
 classes using Sentinel-2 imagery. It repository includes data
@@ -8,12 +7,27 @@ evaluation, and visualization code.
 
 
 
+## Google Earth Engine (GEE)
+
+Data preparation and inference in this project require access to Google Earth
+Engine (GEE). Please keep your GEE Project ID configured either in the
+project configuration (for example under the `configs/` files) or set it as an
+environment variable named `GEE_PROJECT_ID` so scripts and notebooks can access
+GEE without manual edits.
+
+For Colab or other remote environments, export the environment variable before
+running data preparation or inference, e.g.:
+
+```
+export GEE_PROJECT_ID=your-gee-project-id
+```
+
 ## Citation
 
 If you use this work, please cite:
 ```
 bibtex
-@misc{khajura_land_detection_2025,
+@misc{khajura_fallow_land_detection_2025,
   title   = {Deep Learning-Based Detection of Active, Fallow and Abandoned Land: Khajura Municipality, Nepal},
   author  = {Tandukar, Nishon and Acharya, Bishnu and Rawat, Bikram and Acharya, Rishi and Sharma, Sandesh and Thapa, Saruna and Basi, Nishim},
   year    = {2025},
