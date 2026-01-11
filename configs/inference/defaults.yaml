@@ -1,0 +1,83 @@
+gee:
+  project_id: ${oc.env:GEE_PROJECT_ID,"noble-truck-479712-a1"}
+  start_date: "2022-01-01"
+  end_date: "2024-12-31"
+  cloud_pct: 60
+  scale: 10
+  palika_name: "Khajura"
+
+paths:
+  model_path: "outputs/models/best_model.pt"
+  output_raster: "models/exports/khajura_classification.tif"
+  output_composite: "models/exports/khajura_composite.tif"
+  cache_dir: "data/processed/cache"
+
+inference:
+  palika_name: "Khajura"
+  context_length: 55
+  step_days: 20
+  nodata: -9999.0
+  tile_size_deg: 0.01
+  batch_size: 8192
+  device: "auto"
+
+model:
+  input_dim: 9
+  hidden_dim: 64
+  num_layers: 2
+  num_classes: 5
+  dropout: 0.0
+
+classification_plot:
+  raster_path: "models/exports/khajura_classification.tif"
+  output_path: "models/exports/khajura_classification.png"
+  schema: "project5"
+  title: "Land classification map"
+  dpi: 150
+  nodata_color: "#F2F2F2"
+
+rgb_visual:
+  composite_path: "models/exports/khajura_composite.tif"
+  output_path: "models/exports/khajura_rgb_visual.tif"
+  band_order: ["B4", "B3", "B2"]
+  stretch_min: 0.0
+  stretch_max: 0.3
+
+yearly_composites:
+  years: [2022, 2023, 2024]
+  output_dir: "models/exports/yearly_visuals"
+  cloud_pct: 30
+  scale: 20
+  rgb_bands: ["B4", "B3", "B2"]
+  filename_template: "{palika_lower}_rgb_{year}.tif"
+
+class_schemas:
+  project5:
+    0:
+      label: "Abandoned"
+      color: "#8B4513"
+    1:
+      label: "Agro land (Active)"
+      color: "#F2C94C"
+    2:
+      label: "Fallow"
+      color: "#C2B280"
+    3:
+      label: "Vegetation"
+      color: "#006400"
+    4:
+      label: "Other"
+      color: "#4682B4"
+  ag4:
+    0:
+      label: "Agro land (Active)"
+      color: "#F2C94C"
+    1:
+      label: "Fallow"
+      color: "#C2B280"
+    2:
+      label: "Abandoned"
+      color: "#8B4513"
+    3:
+      label: "Other"
+      color: "#4682B4"

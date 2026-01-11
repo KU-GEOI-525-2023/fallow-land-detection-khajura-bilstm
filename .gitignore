@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.env
+*.egg-info/
+dist/
+build/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Models, Checkpoints, and Outputs
+*.pth
+*.pt
+outputs/
+
+# Data
+data/raw/
+data/interim/
+data/processed/
+*.npy
+*.tif
+*.xml
+*.qgz
+*.qmd
+*.cpg
+*.dbf
+*.prj
+*.shp
+*.shx
+
+# Logs and Temporary Files
+*.log
+.serena/
+
+# IDE and System
+.vscode/
+.idea/
+.DS_Store

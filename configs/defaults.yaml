@@ -1,0 +1,13 @@
+defaults:
+  - data: dataset_v2
+  - model: bilstm
+  - train: experiment
+  - _self_
+
+project:
+  seed: 42
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null

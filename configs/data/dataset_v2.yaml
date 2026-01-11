@@ -1,0 +1,54 @@
+data_dir: data/processed
+features_file: X_train.npy
+labels_file: y_train.npy
+batch_size: 32
+num_workers: 0
+pin_memory: true
+val_split: 0.2
+random_seed: 42
+use_weighted_sampler: true
+sampler_power: 0.7 # Soften weights to prevent overfitting on tiny classes like Building
+
+# Optional human-readable class names (order corresponds to label integer mapping 0..N-1)
+class_names: [Abandoned, Active, Fallow, Vegetation, Other]
+
+# How to split data into train/validation. Options: 'auto' (use groups if available), 'group', 'random'
+split_by: auto
+normalize: true
+augment: true
+
+extract:
+  project:
+    id: ${oc.env:GEE_PROJECT_ID,"noble-truck-479712-a1"}
+  mask_mode: "scl"
+  dates:
+    start_date: "2022-01-01"
+    end_date: "2024-12-31"
+  cloud_filters: [60, 70, 80]
+  step_days: 20
+  nodata: -9999.0
+  paths:
+    data_dir: "data"
+    processed_dir: ${data_dir}
+    output_file_x: ${data_dir}/${features_file}
+    output_file_y: ${data_dir}/${labels_file}
+    output_file_sources: ${data_dir}/sample_sources.npy
+  classes:
+    Abandoned: "shapefile/Abandoned_land.shp"
+    Active: "shapefile/Active_land.shp"
+    Fallow: "shapefile/Fallow_land.shp"
+    Vegetation: "shapefile/Vegetation_land.shp"
+    Building: "shapefile/Building.shp"
+    Water: "shapefile/Water_bodies.shp"
+  class_map:
+    Abandoned: 0
+    Active: 1
+    Fallow: 2
+    Vegetation: 3
+    Building: 4
+    Water: 4
+  bands: [B2, B3, B4, B8, B11, B12, ndvi, evi, bsi]
+  sampling:
+    scale: 10
+    tile_scale: 4
+    probe_buffer_m: 20

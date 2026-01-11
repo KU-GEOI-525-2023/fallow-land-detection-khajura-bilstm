@@ -1,0 +1,17 @@
+epochs: 200
+lr: 2e-4
+weight_decay: 0.1
+label_smoothing: 0.2
+clip_norm: 0.5
+checkpoint_dir: outputs/models_baseline
+save_every: 50
+class_weights: auto
+use_weighted_sampler: false
+patience: 30
+min_delta: 0.0001
+scheduler: plateau
+scheduler_factor: 0.5
+scheduler_patience: 10
+use_focal: false
+focal_gamma: 2.0
+focal_boost_active_fallow: 1.3

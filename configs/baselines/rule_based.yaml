@@ -1,0 +1,92 @@
+rule_based:
+  project_id: ${oc.env:GEE_PROJECT_ID,"noble-truck-479712-a1"}
+  palika: "Khajura"
+  target_year: 2023
+  cloud_filter: 60
+  thresholds:
+    peak: 0.6
+    abandoned_mean_low: 0.3
+    abandoned_mean_high: 0.5
+    other_mean_low: 0.2
+    nonveg_max: 0.3
+    forest_min: 0.7
+  majority_filter: false
+  output_schema: "project5"
+  nodata: -1
+  tile_size_deg: 0.01
+  cache_dir: null
+  output: "models/exports/rule_based_land_status.tif"
+  download_scale: 10
+
+evaluation:
+  data_dir: "data/processed"
+  output_dir: "outputs"
+  x_file: "data/processed/X_train.npy"
+  y_file: "data/processed/y_train.npy"
+  groups_file: "data/processed/sample_sources.npy"
+  class_names: ["Abandoned", "Active", "Fallow", "Vegetation", "Other"]
+  eval_mode: "val"
+  random_seed: 42
+  val_split: 0.2
+  ndvi_index: 6
+  year_steps: 18
+  thresholds:
+    peak: 0.6
+    veg_mean: 0.5
+    other_mean: 0.25
+  outputs:
+    cm_filename: "rule_based_cm_{mode}.png"
+    metrics_filename: "rule_based_metrics_{mode}.png"
+
+classification_plot:
+  raster_path: "models/exports/rule_based_land_status.tif"
+  output_path: "outputs/landuse/figures/rule_based_classification.png"
+  schema: "project5"
+  title: "Rule-based classification map"
+  dpi: 150
+  nodata_color: "#F2F2F2"
+
+land_distribution:
+  input_csv: "outputs/predictions/rule_based_distribution.csv"
+  output_png: "outputs/rule_based_land_distribution.png"
+  class_column: "Class_Name"
+  area_column: "Area_Ha"
+  percent_column: "Percentage"
+  bar_title: "Land Distribution by Area (Hectares)"
+  pie_title: "Proportional Land Distribution"
+  cmap: "viridis"
+  pie_start_angle: 140
+  explode: 0.05
+  figsize: [16, 7]
+  dpi: 100
+
+class_schemas:
+  project5:
+    0:
+      label: "Abandoned"
+      color: "#8B4513"
+    1:
+      label: "Agro land (Active)"
+      color: "#F2C94C"
+    2:
+      label: "Fallow"
+      color: "#C2B280"
+    3:
+      label: "Vegetation"
+      color: "#006400"
+    4:
+      label: "Other"
+      color: "#4682B4"
+  ag4:
+    0:
+      label: "Agro land (Active)"
+      color: "#F2C94C"
+    1:
+      label: "Fallow"
+      color: "#C2B280"
+    2:
+      label: "Abandoned"
+      color: "#8B4513"
+    3:
+      label: "Other"
+      color: "#4682B4"

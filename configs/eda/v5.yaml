@@ -1,0 +1,56 @@
+paths:
+  output_file_x: "data/processed/X_train.npy"
+  output_file_y: "data/processed/y_train.npy"
+  output_dir: "data/processed/eda_v5"
+
+class_names:
+  - "Abandoned"
+  - "Active"
+  - "Fallow"
+  - "Vegetation"
+  - "Other"
+
+feature_names:
+  - "B2"
+  - "B3"
+  - "B4"
+  - "B8"
+  - "B11"
+  - "B12"
+  - "ndvi"
+  - "evi"
+  - "bsi"
+
+indices:
+  - "ndvi"
+  - "evi"
+  - "bsi"
+
+date:
+  start_year: 2022
+  step_days: 20
+
+plots:
+  class_distribution:
+    title: "Class Distribution (Consolidated 5 Classes)"
+    palette: "magma"
+    figsize: [10, 6]
+    filename: "class_distribution.png"
+  mean_timeseries:
+    title_template: "Mean {feature} Time Series by Class (2022-2024)"
+    figsize: [14, 7]
+    filename_template: "mean_{feature}.png"
+  samples:
+    title_template: "Class: {class_name} - Sample {feature} Trajectories"
+    num_samples_per_class: 3
+    figsize_width: 15
+    figsize_height_per_class: 4
+    filename_template: "samples_{feature}.png"
+  indices_boxplot:
+    title: "Distribution of Temporal Mean Indices by Class"
+    figsize: [15, 8]
+    filename: "indices_boxplot.png"
+  feature_correlation:
+    title: "Feature Correlation Matrix (Temporal Means)"
+    figsize: [10, 8]
+    filename: "feature_correlation.png"

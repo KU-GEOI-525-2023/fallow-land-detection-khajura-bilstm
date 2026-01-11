@@ -1,0 +1,5 @@
+input_dim: 9
+hidden_dim: 64
+num_layers: 2
+num_classes: 5
+dropout: 0.4

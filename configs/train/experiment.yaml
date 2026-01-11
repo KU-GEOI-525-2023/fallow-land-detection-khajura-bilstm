@@ -1,0 +1,21 @@
+epochs: 200
+lr: 1e-3
+weight_decay: 0.05
+label_smoothing: 0.1
+clip_norm: 0.5
+checkpoint_dir: outputs/models
+save_every: 50
+class_weights: auto
+use_weighted_sampler: false # Disabling weighted sampler to prevent hijacking by tiny classes
+patience: 50
+min_delta: 0.0001
+scheduler: plateau
+
+# Aggressive LR decay settings
+scheduler_factor: 0.5
+scheduler_patience: 15
+
+# Focal Loss and Class Weight Tuning
+use_focal: true
+focal_gamma: 2.0
+focal_boost_active_fallow: 1.5 

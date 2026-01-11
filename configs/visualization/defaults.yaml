@@ -1,0 +1,71 @@
+gee:
+  project_id: ${oc.env:GEE_PROJECT_ID,"noble-truck-479712-a1"}
+  palika_name: "Khajura"
+
+esri_lulc:
+  stac_url: "https://planetarycomputer.microsoft.com/api/stac/v1"
+  collection: "io-lulc"
+  palika_name: ${gee.palika_name}
+  output_dir: "outputs/landuse"
+  output_filename_template: "{palika_slug}_esri_lulc.tif"
+  legend_filename_template: "{palika_slug}_esri_lulc.json"
+  resolution: 0.00009
+  classes:
+    0: "nodata"
+    1: "water"
+    2: "trees"
+    3: "grass"
+    4: "flooded veg"
+    5: "crops"
+    6: "scrub"
+    7: "built area"
+    8: "bare"
+    9: "snow/ice"
+    10: "clouds"
+
+class_schemas:
+  samples:
+    0:
+      label: "Abandoned"
+      color: "#8B4513"
+    1:
+      label: "Active"
+      color: "#228B22"
+    2:
+      label: "Fallow"
+      color: "#DAA520"
+    3:
+      label: "Vegetation"
+      color: "#006400"
+    4:
+      label: "Other"
+      color: "#4682B4"
+  project5:
+    0:
+      label: "Abandoned"
+      color: "#8B4513"
+    1:
+      label: "Agro land (Active)"
+      color: "#F2C94C"
+    2:
+      label: "Fallow"
+      color: "#C2B280"
+    3:
+      label: "Vegetation"
+      color: "#006400"
+    4:
+      label: "Other"
+      color: "#4682B4"
+  ag4:
+    0:
+      label: "Agro land (Active)"
+      color: "#F2C94C"
+    1:
+      label: "Fallow"
+      color: "#C2B280"
+    2:
+      label: "Abandoned"
+      color: "#8B4513"
+    3:
+      label: "Other"
+      color: "#4682B4"
