@@ -2,9 +2,9 @@
 # Khajura Rural Municipality, Nepal
 
 End-to-end pipeline for mapping active, fallow, abandoned, and other land cover
-classes using Sentinel-2 imagery and Google Earth Engine. It includes data
-extraction, EDA, rule-based baselines, deep learning training/inference,
-evaluation, and visualization
+classes using Sentinel-2 imagery. It repository includes data
+extraction, EDA, rule-based algorithm for fallow land detection, BiLSTM modeldeep learning training/inference,
+evaluation, and visualization code. 
 
 
 
